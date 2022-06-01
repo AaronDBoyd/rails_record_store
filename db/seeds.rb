@@ -28,22 +28,23 @@
 # p "Created #{Spice.count} spices"
 
 Album.destroy_all
-
+album_id_array = []
 10.times do |index|
-  # Album.create!(name: Faker::Lorem.sentence(word_count: 2), genre: Faker::Lorem.word)
-  Album.create!(name: Faker::Superhero.power, genre: Faker::Lorem.word)                    
+  Album.create!(name: Faker::Superhero.power, genre: Faker::Lorem.word) 
+      album_id_array.push(Album.last.id)                  
 end
 ##push album id to array, for each loop or random. look up Array.random/.sample
 p "Created #{Album.count} albums"
 
+p album_id_array
 # Song.destroy_all
-num = 1
-# num is the id number of the first album in the table. 
-10.times do |index|
-  # Album.create!(name: Faker::Lorem.sentence(word_count: 2), genre: Faker::Lorem.word)
+# num = 1
+# # num is the id number of the first album in the table. 
+# 10.times do |index|
+album_id_array.each do |num|
   Song.create!(name: Faker::Superhero.name,lyrics: Faker::Lorem.paragraph_by_chars(number: 50), album_id: num)   
   
-  num += 1
+#   num += 1
 end
 
 p "Created #{Song.count} songs"
