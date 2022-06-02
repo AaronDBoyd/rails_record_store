@@ -42,8 +42,9 @@ p album_id_array
 # # num is the id number of the first album in the table. 
 # 10.times do |index|
 album_id_array.each do |num|
+  7.times do |index|
   Song.create!(name: Faker::Superhero.name,lyrics: Faker::Lorem.paragraph_by_chars(number: 50), album_id: num)   
-  
+  end
 #   num += 1
 end
 
